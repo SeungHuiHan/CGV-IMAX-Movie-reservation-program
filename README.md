@@ -30,10 +30,10 @@
   pip install bs4
   ```
 
-## 실행 영상
+## 🎞 실행 영상
 ![video1909524590](https://github.com/SeungHuiHan/CGV-IMAX-Movie-reservation-program/assets/98226400/0745ff11-4c4d-499b-a18f-593352725bc0)
 
-## 주요 코드 설명
+## 📝 주요 코드 설명
 ```python
 theater='CGV영등포' #영화관 선택 (IMAX 전용)
 date=datetime.strptime("20240314", "%Y%m%d") #예매 희망 날짜, 단 현재부터 2주 이내
@@ -130,26 +130,7 @@ popup_button1.click()
     print("버튼이 활성화되지 안됨"
   ```
   - 인원에 맞게 좌석을 선택했다면 바로 다음 결제방식 단계로 넘어갑니다.
-![cvg 영화 예먀 좌석선택후 넘어가기 버튼](https://github.com/SeungHuiHan/CGV-IMAX-Movie-reservation-program/assets/98226400/fd21ca0e-be21-4caf-bb36-a834e7fbabc1)
-
-
-  ```python
-  #간편결제로 선택
-  browser.find_element_by_id('last_pay_radio3').click()
-
-  #대중적인 카카오페이로 선택
-  browser.find_element_by_id('payKakao_btn').click()
-  ```
-  - 결제 방식은 간편하고 대중적인 카카오페이로 선택하였습니다.
-  - 원하는 결제 방식을 바꿀 수 있습니다.
-  - 결제 방식 바꾸는 방법: 개발자도구에서 원하는 결제 방식의 id가 뭔지 확인하고 .find_element_by_id('')에 집에 넣기
-  - (ex. 네이버페이로 바꾸고 싶음->  browser.find_element_by_id('naverPay_btn') 바꿈
-    ![cvg 영화 예매 최종결제수단](https://github.com/SeungHuiHan/CGV-IMAX-Movie-reservation-program/assets/98226400/dea2b3ee-95b1-4836-8b19-6b2798e035d7)
-
-## 🏴‍☠️ 프로젝트를 하며 느낀점
-파이썬을 이용하는 산업경영공학과 '프로젝트 응용'수업이었다. 이 수업에서 자율 프로젝트가 있었다.
-
-보통 프로젝트를 한다 하면 수업이나 교육에 관련있는 데이터 추출 후 분석하기 혹은 게임 만들기, 또는 인터넷에 가장 많이 뜨는 프로젝트 론하기 등이 있다.
+![cvg 영화 예먀 좌석선택후 넘어가기 버튼](https://github.com/SeungHuiHan/CGV-IMAX-Movie-rese클론하기 등이 있다.
 
 나는 실생활에서 나에게 도움이 되는 프로젝트를 하고 싶었다. 이 당시 나는 마블 영화를 '용아맥'='CGV용산 IMAX'로 영화 보는 것을 좋아했다.
 
