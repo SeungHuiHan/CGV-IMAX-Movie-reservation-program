@@ -15,7 +15,7 @@ from datetime import datetime
 import time
 
 theater='CGV영등포' #영화관 선택 (IMAX 전용)
-date=datetime.strptime("20240314", "%Y%m%d") #예매 희망 날짜, 단 현재부터 2주 이내
+date=datetime.strptime("20240323", "%Y%m%d") #예매 희망 날짜, 단 현재부터 2주 이내
 title='듄-파트2'#영화 제목
 #어른,청소년 포함최대 8명까지
 adult_people=1 #일반 예매 인원(경로,우대 안됨) 
@@ -28,8 +28,8 @@ browser.maximize_window()
 browser.find_element_by_xpath('//*[@id="cgvwrap"]/div[2]/div[1]/div/ul/li[1]/a').click()
 
 browser.implicitly_wait(2)
-browser.find_element_by_name('txtUserId').send_keys('*****') #아이디 입력
-browser.find_element_by_name('txtPassword').send_keys('****') #비밀번호 입력
+browser.find_element_by_name('txtUserId').send_keys('yaedam0515') #아이디 입력
+browser.find_element_by_name('txtPassword').send_keys('plokij5@') #비밀번호 입력
 browser.find_element_by_xpath('//*[@id="submit"]/span').click() #로그인
 
 browser.implicitly_wait(2)
@@ -66,7 +66,7 @@ if date_1 in slider_1:
     browser.find_element_by_partial_link_text(date_1).send_keys(Keys.ENTER)
 
 else: #현재 페이지에 희망 날짜가 없으면 next버튼으로 날짜 이동
-    browser.find_element_by_class_name('btn-next').click()
+    browser.find_element_by_class_name('btn-next').send_keys(Keys.ENTER)
     browser.implicitly_wait(1)
 
 try:
@@ -82,11 +82,11 @@ soup=BeautifulSoup(browser.page_source)
 browser.implicitly_wait(3)
 while True:  #영화가 해당날짜에 없으면 나올때까지 무한 클릭
     title_one=soup.find(class_="sect-showtimes").text #영화 리스트
-    
+    print(title_one)
     if title in title_one:
         break
     else:
-        browser.find_element_by_partial_link_text(date_1).click()
+        browser.find_element_by_partial_link_text(date_1).send_keys(Keys.ENTER)
         browser.implicitly_wait(1)
 
 elemt_1=browser.find_element_by_class_name('sect-showtimes').find_element_by_tag_name('ul')
@@ -103,7 +103,7 @@ for i in range(len(li_2)):
         info_timetable=parent_element.find_element_by_class_name('info-timetable').find_element_by_tag_name('ul') #IMAX관 스케줄 확인
         li=info_timetable.find_elements_by_tag_name('li')
         
-        if len(li)<=2: #영화 시간 임의 선택할 수 없음(대략 오후3시~5시 사이 상영작)
+        if len(li)<=2: #영화 시간 임의 선택할 수 없음(대략 오후3시~7시 사이 상영작)
             li[len(li)-1].click()
         elif len(li)<=4:
             li[len(li)-2].click()
@@ -145,7 +145,7 @@ try:
     print("클릭 가능")
     button_element.click()
 except:
-    print("버튼이 활성화되지 않됨")
+    print("버튼이 활성화되지 안됨")
 
 time.sleep(1)
 browser.find_element_by_xpath('//*[@id="discCoupon"]/div[1]').click()
@@ -170,6 +170,7 @@ try:
 except:
         "there is no alert"
 
+#간편결제로 선택
 browser.find_element_by_id('last_pay_radio3').click()
 
 #대중적인 카카오페이로 선택
