@@ -6,7 +6,7 @@
 개발 언어: <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
 
 ## 🔍 미리 보기
-- [프로젝트 소개](#프로젝트-소개)
+- [프로젝트 소개](#💻-프로젝트-소개)
 - [실행 전 주의 사항](#실행-전-주의-사항)
 - [실행 영상](#실행-영상)
 - [주요 코드 설명](#주요-코드-설명)
